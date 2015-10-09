@@ -25,4 +25,10 @@ angular.module('starter.controllers', [])
   $scope.settings = {
     enableFriends: true
   };
+})
+.controller('PostController', function($scope,$http) {
+  $scope.posts = [];
+  $http.get('http://localhost:8000/posts').then(function(response){
+      $scope.posts = response.data;
+  })
 });
